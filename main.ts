@@ -1,19 +1,3 @@
-/** EXTRA DETAILS FOR CLARITY - DELETE COMMENT
- * The main self executing function navigates to the github page and puts
- * the object together.
- * Most of the scraping logic is in 'scrapeServerConfiguration'. MCP server
- * configurations come in JSON that are exposed in some pages and a user
- * can copy them to the browser's clipboard. Others are hidden under a dropdown, i.e.,
- * "Using docker". The scraper looks for docker configurations, followed by npx commands,
- * which is followed by uvx if the preference doesn't exist. For whatever reason, playwright's
- * selector keeps favoring the npx configuration, so another for loop was created
- * to specifically get docker configurations if they exist (ontact author for further
- * explanation).
- * Otherwise, console logs were added for debugging. Delete any comment as preferred,
- * including this one.
- * Build typescript: npm run build
- * Run script: npm start
- */
 import { BrowserContext, chromium, Page } from "playwright";
 import { promises as fs } from "fs";
 

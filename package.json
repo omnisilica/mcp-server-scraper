@@ -1,0 +1,20 @@
+{
+  "name": "mcp-server-scraper",
+  "version": "1.0.0",
+  "description": "Script that scrapes all servers from \"https://github.com/modelcontextprotocol/servers/tree/main/src\"",
+  "main": "main.js",
+  "scripts": {
+    "build": "tsc main.ts",
+    "start": "node main.js"
+  },
+  "author": "omnisilica",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "playwright": "^1.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "aws-kb-retrieval-server": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "AWS_ACCESS_KEY_ID",
+      "-e",
+      "AWS_SECRET_ACCESS_KEY",
+      "-e",
+      "AWS_REGION",
+      "mcp/aws-kb-retrieval-server"
+    ],
+    "env": {
+      "AWS_ACCESS_KEY_ID": "YOUR_ACCESS_KEY_HERE",
+      "AWS_SECRET_ACCESS_KEY": "YOUR_SECRET_ACCESS_KEY_HERE",
+      "AWS_REGION": "YOUR_AWS_REGION_HERE"
+    }
+  },
+  "brave-search": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "BRAVE_API_KEY",
+      "mcp/brave-search"
+    ],
+    "env": {
+      "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+    }
+  },
+  "everart": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "EVERART_API_KEY",
+      "mcp/everart"
+    ],
+    "env": {
+      "EVERART_API_KEY": "your_key_here"
+    }
+  },
+  "everything": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "fetch": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "mcp/fetch"
+    ]
+  },
+  "filesystem": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "--mount",
+      "type=bind,src=/Users/username/Desktop,dst=/projects/Desktop",
+      "--mount",
+      "type=bind,src=/path/to/other/allowed/dir,dst=/projects/other/allowed/dir,ro",
+      "--mount",
+      "type=bind,src=/path/to/file.txt,dst=/projects/path/to/file.txt",
+      "mcp/filesystem",
+      "/projects"
+    ]
+  },
+  "gdrive": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-v",
+      "mcp-gdrive:/gdrive-server",
+      "-e",
+      "GDRIVE_CREDENTIALS_PATH=/gdrive-server/credentials.json",
+      "mcp/gdrive"
+    ]
+  },
+  "git": {
+    "command": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "-i",
+      "--mount",
+      "type=bind,src=/Users/username,dst=/Users/username",
+      "mcp/git"
+    ]
+  },
+  "github": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "mcp/github"
+    ],
+    "env": {
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+    }
+  },
+  "gitlab": {
+    "command": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "-i",
+      "-e",
+      "GITLAB_PERSONAL_ACCESS_TOKEN",
+      "-e",
+      "GITLAB_API_URL",
+      "mcp/gitlab"
+    ],
+    "env": {
+      "GITLAB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>",
+      "GITLAB_API_URL": "https://gitlab.com/api/v4"
+    }
+  },
+  "google-maps": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "GOOGLE_MAPS_API_KEY",
+      "mcp/google-maps"
+    ],
+    "env": {
+      "GOOGLE_MAPS_API_KEY": "<YOUR_API_KEY>"
+    }
+  },
+  "memory": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "-v",
+      "claude-memory:/app/dist",
+      "--rm",
+      "mcp/memory"
+    ]
+  },
+  "postgres": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "mcp/postgres",
+      "postgresql://host.docker.internal:5432/mydb"
+    ]
+  },
+  "puppeteer": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "--init",
+      "-e",
+      "DOCKER_CONTAINER=true",
+      "mcp/puppeteer"
+    ]
+  },
+  "redis": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "mcp/redis",
+      "redis://host.docker.internal:6379"
+    ]
+  },
+  "sentry": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "mcp/sentry",
+      "--auth-token",
+      "YOUR_SENTRY_TOKEN"
+    ]
+  },
+  "sequentialthinking": {
+    "command": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "-i",
+      "mcp/sequentialthinking"
+    ]
+  },
+  "slack": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "SLACK_BOT_TOKEN",
+      "-e",
+      "SLACK_TEAM_ID",
+      "mcp/slack"
+    ],
+    "env": {
+      "SLACK_BOT_TOKEN": "xoxb-your-bot-token",
+      "SLACK_TEAM_ID": "T01234567"
+    }
+  },
+  "sqlite": {
+    "command": "docker",
+    "args": [
+      "run",
+      "--rm",
+      "-i",
+      "-v",
+      "mcp-test:/mcp",
+      "mcp/sqlite",
+      "--db-path",
+      "/mcp/test.db"
+    ]
+  },
+  "time": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "mcp/time"
+    ]
+  }
+}
